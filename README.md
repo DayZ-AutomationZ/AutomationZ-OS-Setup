@@ -43,3 +43,27 @@ journalctl -u automationz-updater.service --no-pager -n 50
 ## Notes
 
 - The Hub tries common tool entrypoints like `/opt/automationz/<tool>/main.py`.
+
+## Credits
+
+---
+🧩 AutomationZ 
+These tools are part of the AutomationZ Admin Toolkit:
+
+- AutomationZ Mod Update Auto Deploy (steam workshop)
+- AutomationZ Uploader
+- AutomationZ Scheduler
+- AutomationZ Server Backup Scheduler
+- AutomationZ Server Health
+- AutomationZ Config Diff 
+- AutomationZ Admin Orchestrator
+- AutomationZ Log Cleanup Scheduler
+
+Together they form a complete server administration solution.
+
+### 💚 Support the project
+
+AutomationZ tools are built for server owners by a server owner.  
+If these tools save you time or help your community, consider supporting development.
+
+☕ Support me [Ko-fi](https://ko-fi.com/dannyvandenbrande) 
