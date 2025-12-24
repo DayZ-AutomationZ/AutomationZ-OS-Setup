@@ -1,0 +1,8 @@
+[Unit]
+Description=AutomationZ Updater (git pull)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/opt/automationz-os/updater/automationz-update.sh

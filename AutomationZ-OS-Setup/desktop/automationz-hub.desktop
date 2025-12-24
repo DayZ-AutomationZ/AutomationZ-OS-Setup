@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=AutomationZ Hub
+Comment=Launch AutomationZ admin tools
+Categories=Utility;System;
+Exec=python3 /opt/automationz-os/hub/automationz-hub.py
+Icon=utilities-terminal
+Terminal=false
+StartupNotify=true
