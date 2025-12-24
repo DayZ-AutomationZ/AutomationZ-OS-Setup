@@ -43,4 +43,3 @@ journalctl -u automationz-updater.service --no-pager -n 50
 ## Notes
 
 - The Hub tries common tool entrypoints like `/opt/automationz/<tool>/main.py`.
-- Next step is wiring the Hub buttons to your *real* tool folders once we list them.
