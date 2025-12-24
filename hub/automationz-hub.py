@@ -20,7 +20,8 @@ TOOLS = [
     ("AutomationZ Scheduler",     AUTOMATIONZ_DIR / "AutomationZ_Scheduler" / "app" / "main.py"),
     ("Server Backup Scheduler",   AUTOMATIONZ_DIR / "AutomationZ_Server_Backup_Scheduler" / "app" / "main.py"),
     ("Server Health",             AUTOMATIONZ_DIR / "AutomationZ_Server_Health" / "app" / "main.py"),
-    ("Uploader",                  AUTOMATIONZ_DIR / "AutomationZ_Uploader" / "app" / "main.py"),
+    ("Uploader",                  AUTOMATIONZ_DIR / "AutomationZ_Uploader" / "app" / "main.py"), 
+    ("Config Diff",               AUTOMATIONZ_DIR / "AutomationZ-Config-Diff-LOCAL" / "app" / "main.py"),
 ]
 
 def run_cmd(cmd: list[str]) -> None:
