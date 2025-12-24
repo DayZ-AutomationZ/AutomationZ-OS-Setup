@@ -10,13 +10,17 @@ from pathlib import Path
 AUTOMATIONZ_DIR = Path(os.environ.get("AUTOMATIONZ_DIR", "/opt/automationz"))
 UPDATER = Path("/opt/automationz-os/updater/automationz-update.sh")
 
-# Try common entrypoints you may have across tools
-CANDIDATE_TOOLS = [
-    ("AutomationZ (main.py)", AUTOMATIONZ_DIR / "main.py"),
-    ("Mod Auto-Deploy",       AUTOMATIONZ_DIR / "mod_auto_deploy" / "main.py"),
-    ("Server Health Monitor", AUTOMATIONZ_DIR / "server_health" / "main.py"),
-    ("Uploader",              AUTOMATIONZ_DIR / "uploader" / "main.py"),
-    ("Config Diff Tool",      AUTOMATIONZ_DIR / "config_diff" / "main.py"),
+# Your real structure:
+# - Most tools: /opt/automationz/<ToolFolder>/app/main.py
+# - Exception: /opt/automationz/AutomationZ_Mod_Update_Auto_Deploy/main.py
+TOOLS = [
+    ("Admin Orchestrator",        AUTOMATIONZ_DIR / "AutomationZ_Admin_Orchestrator" / "app" / "main.py"),
+    ("Log Cleanup Scheduler",     AUTOMATIONZ_DIR / "AutomationZ_Log_Cleanup_Scheduler" / "app" / "main.py"),
+    ("Mod Update Auto Deploy",    AUTOMATIONZ_DIR / "AutomationZ_Mod_Update_Auto_Deploy" / "main.py"),  # special case
+    ("AutomationZ Scheduler",     AUTOMATIONZ_DIR / "AutomationZ_Scheduler" / "app" / "main.py"),
+    ("Server Backup Scheduler",   AUTOMATIONZ_DIR / "AutomationZ_Server_Backup_Scheduler" / "app" / "main.py"),
+    ("Server Health",             AUTOMATIONZ_DIR / "AutomationZ_Server_Health" / "app" / "main.py"),
+    ("Uploader",                  AUTOMATIONZ_DIR / "AutomationZ_Uploader" / "app" / "main.py"),
 ]
 
 def run_cmd(cmd: list[str]) -> None:
@@ -27,7 +31,7 @@ def run_cmd(cmd: list[str]) -> None:
 
 def run_python(script_path: Path) -> None:
     if not script_path.exists():
-        messagebox.showwarning("Not found", f"Tool not found:\n{script_path}")
+        messagebox.showwarning("Not found", f"Tool entry not found:\n{script_path}")
         return
     run_cmd(["python3", str(script_path)])
 
@@ -41,7 +45,7 @@ def update_now() -> None:
     if not UPDATER.exists():
         messagebox.showerror("Updater missing", f"Updater not found:\n{UPDATER}")
         return
-    # pkexec gives a GUI password prompt on KDE instead of terminal sudo
+    # GUI password prompt on KDE
     run_cmd(["pkexec", str(UPDATER)])
 
 def open_steam() -> None:
@@ -55,8 +59,8 @@ def open_filezilla() -> None:
 
 def build_ui(root: tk.Tk) -> None:
     root.title("AutomationZ Hub")
-    root.geometry("560x460")
-    root.minsize(560, 460)
+    root.geometry("600x520")
+    root.minsize(600, 520)
 
     frm = ttk.Frame(root, padding=16)
     frm.pack(fill="both", expand=True)
@@ -64,13 +68,13 @@ def build_ui(root: tk.Tk) -> None:
     title = ttk.Label(frm, text="AutomationZ Hub", font=("Arial", 18, "bold"))
     title.pack(anchor="w")
 
-    subtitle = ttk.Label(frm, text=f"AutomationZ path: {AUTOMATIONZ_DIR}")
+    subtitle = ttk.Label(frm, text=f"Tools path: {AUTOMATIONZ_DIR}")
     subtitle.pack(anchor="w", pady=(4, 12))
 
     tools_box = ttk.LabelFrame(frm, text="Tools", padding=12)
     tools_box.pack(fill="x")
 
-    for label, path in CANDIDATE_TOOLS:
+    for label, path in TOOLS:
         row = ttk.Frame(tools_box)
         row.pack(fill="x", pady=4)
         ttk.Label(row, text=label).pack(side="left")
@@ -90,8 +94,15 @@ def build_ui(root: tk.Tk) -> None:
     ttk.Button(sys_row2, text="VSCodium", command=open_editor).pack(side="left", padx=8)
     ttk.Button(sys_row2, text="FileZilla", command=open_filezilla).pack(side="left")
 
-    footer = ttk.Label(frm, text="Tip: put tools in /opt/automationz/<tool>/main.py for auto-detection.")
-    footer.pack(anchor="w", pady=(14, 0))
+    # Quick sanity check button
+    def check_paths():
+        missing = [str(p) for _, p in TOOLS if not p.exists()]
+        if not missing:
+            messagebox.showinfo("OK", "All tool entrypoints found ✅")
+        else:
+            messagebox.showwarning("Missing", "These entrypoints were not found:\n\n" + "\n".join(missing))
+
+    ttk.Button(frm, text="Check tool paths", command=check_paths).pack(anchor="w", pady=(12, 0))
 
 if __name__ == "__main__":
     root = tk.Tk()
