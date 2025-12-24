@@ -1,4 +1,4 @@
-# AutomationZ OS Setup (Fedora KDE)
+# AutomationZ OS Setup (Fedora KDE) [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/R6R51QD7BU)
 
 This repo turns a fresh Fedora KDE install into an "AutomationZ Admin OS" style workstation:
 
