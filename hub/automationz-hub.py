@@ -22,6 +22,7 @@ TOOLS = [
     ("Server Health",             AUTOMATIONZ_DIR / "AutomationZ_Server_Health" / "app" / "main.py"),
     ("Uploader",                  AUTOMATIONZ_DIR / "AutomationZ_Uploader" / "app" / "main.py"), 
     ("Config Diff",               AUTOMATIONZ_DIR / "AutomationZ-Config-Diff-LOCAL" / "app" / "main.py"),
+    ("Restart Loop Guard",        AUTOMATIONZ_DIR / "AutomationZ_Restart_Loop_Guard" / "app" / "main.py"),
 ]
 
 def run_cmd(cmd: list[str]) -> None:
