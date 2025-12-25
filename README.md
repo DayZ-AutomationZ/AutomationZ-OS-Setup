@@ -67,7 +67,7 @@ These tools are part of the AutomationZ Admin Toolkit:
 - AutomationZ Config Diff 
 - AutomationZ Admin Orchestrator
 - AutomationZ Log Cleanup Scheduler
-- AutomationZ_Restart_Loop_Guard
+- AutomationZ Restart Loop Guard
 
 Together they form a complete server administration solution.
 
