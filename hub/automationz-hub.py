@@ -17,6 +17,7 @@ TOOLS = [
     ("Admin Orchestrator",        AUTOMATIONZ_DIR / "AutomationZ_Admin_Orchestrator" / "app" / "main.py"),
     ("Log Cleanup Scheduler",     AUTOMATIONZ_DIR / "AutomationZ_Log_Cleanup_Scheduler" / "app" / "main.py"),
     ("Mod Update Auto Deploy",    AUTOMATIONZ_DIR / "AutomationZ_Mod_Update_Auto_Deploy" / "main.py"),  # special case
+    ("Restart Companion",         AUTOMATIONZ_DIR / "AutomationZ-Restart-Companion" / "app" / "main.py"), 
     ("AutomationZ Scheduler",     AUTOMATIONZ_DIR / "AutomationZ_Scheduler" / "app" / "main.py"),
     ("Server Backup Scheduler",   AUTOMATIONZ_DIR / "AutomationZ_Server_Backup_Scheduler" / "app" / "main.py"),
     ("Server Health",             AUTOMATIONZ_DIR / "AutomationZ_Server_Health" / "app" / "main.py"),
