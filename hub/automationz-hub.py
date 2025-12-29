@@ -10,7 +10,6 @@ from pathlib import Path
 AUTOMATIONZ_DIR = Path(os.environ.get("AUTOMATIONZ_DIR", "/opt/automationz"))
 UPDATER = Path("/opt/automationz-os/updater/automationz-update.sh")
 
-# Your real structure:
 # - Most tools: /opt/automationz/<ToolFolder>/app/main.py
 # - Exception: /opt/automationz/AutomationZ_Mod_Update_Auto_Deploy/main.py
 TOOLS = [
