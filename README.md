@@ -9,7 +9,7 @@ This repo turns a fresh Fedora KDE install into an "AutomationZ Admin OS" style 
 
 ### Mod Update Auto Deploy requirement
 
-**Mod Update Auto Deploy** requires **Steam + DayZ + Steam Workshop content** on the **same machine**.  
+**Mod Update Auto Deploy** requires **Steam + DayZ or other games + Steam Workshop content** on the **same machine**.  
 If those are not present, the tool **cannot be used on that machine**.
 
 You can still install **AutomationZ OS** on a non-gaming system and use the other AutomationZ tools (health, backups, uploader, scheduler, config diff, log cleanup, etc.).
